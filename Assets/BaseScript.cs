@@ -28,6 +28,7 @@ public class BaseScript : MonoBehaviour
     }
 
     public BaseClass[] bases;
+    public GameObject basesParent;
     public GameObject[] baseSpots;
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,12 @@ public class BaseScript : MonoBehaviour
     void Update()
     {
         
+    }
+    void checkBases()
+    {
+        if(basesParent.transform.childCount <= 1)
+        {
+            gameOver();
+        }
     }
 }

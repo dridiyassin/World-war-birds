@@ -7,6 +7,7 @@ public class BaseStats : MonoBehaviour
     // Start is called before the first frame update
     public int baseLevel = 0;
     public bool baseIsBuilt = false;
+    
     private BaseScript baseScript;
 
     public BaseScript.BaseClass currentBase;

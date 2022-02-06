@@ -8,12 +8,12 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     Vector3 myScreenPos;
     float bulletSpeed;
-
+    BaseStats stats;
     // Start is called before the first frame update
     void Start()
     {
         myScreenPos = Camera.main.WorldToScreenPoint(transform.position);
-        
+        stats = GetComponent<BaseStats>();
        
         //refreshBases();
     }
@@ -35,6 +35,7 @@ public class Shoot : MonoBehaviour
         bulletSpeed = GetComponent<BaseStats>().currentBase.bulletSpeed;
         Debug.Log(bulletSpeed);
         bulletShoot.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y) * bulletSpeed * Time.deltaTime;
+        bulletShoot.GetComponent<BulletStats>().currentDamage = stats.currentBase.bulletDamage;
         Destroy(bulletShoot, 5f);
     }
 }
